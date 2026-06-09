@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Post-Event Survey</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="survey.css" />
+  </head>
+  <body>
+    <!-- ══════════════════════════════════════
+     SPLASH SCREEN
+══════════════════════════════════════ -->
+    <div id="splash" class="active">
+      <div class="splash-header">
+        <div class="splash-mono">Post-Event Survey Template</div>
+        <div class="splash-title" id="splash-event-name">Loading…</div>
+        <div class="splash-sub">Bilingual · MPW Index · CSV persistence</div>
+      </div>
+      <div class="splash-card">
+        <h3>Load existing responses?</h3>
+        <p>
+          If you have a previous CSV from this survey, load it to append new
+          responses. Otherwise start fresh.
+        </p>
+        <div class="stats-box" id="stats-box">
+          <div class="stat-row">
+            <span class="stat-label">Responses loaded</span
+            ><span class="stat-val" id="stat-count">—</span>
+          </div>
+          <div class="stat-row">
+            <span class="stat-label">Last submission</span
+            ><span class="stat-val" id="stat-last">—</span>
+          </div>
+          <div class="stat-row">
+            <span class="stat-label">File</span
+            ><span class="stat-val" id="stat-file">—</span>
+          </div>
+        </div>
+        <div class="splash-actions" id="splash-actions">
+          <button class="btn btn-outline" onclick="loadCSV()">
+            📂 Load existing CSV
+          </button>
+          <button class="btn btn-primary" onclick="startFresh()">
+            Start fresh survey →
+          </button>
+        </div>
+        <div id="splash-loaded" class="hidden" style="margin-top: 16px">
+          <button
+            class="btn btn-primary"
+            style="width: 100%"
+            onclick="startFresh()"
+          >
+            Continue → Begin new response
+          </button>
+          <button
+            class="btn btn-ghost"
+            style="width: 100%; margin-top: 8px"
+            onclick="resetLoad()"
+          >
+            ↩ Load different file
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════
+     FORM SCREEN
+══════════════════════════════════════ -->
+    <div id="form-screen" class="screen">
+      <div class="topbar">
+        <div class="topbar-title" id="topbar-title">Post-Event Survey</div>
+        <div class="topbar-meta" id="topbar-meta">Section 1 of 11 · 0%</div>
+        <div class="progress-track">
+          <div class="progress-fill" id="progress-fill"></div>
+        </div>
+      </div>
+      <div class="form-body" id="form-body"><!-- rendered by JS --></div>
+      <div class="nav-bar">
+        <div class="nav-left">
+          <button
+            class="btn btn-secondary"
+            id="btn-back"
+            onclick="prevSection()"
+            style="display: none"
+          >
+            ← Back
+          </button>
+          <button class="btn btn-ghost" onclick="skipSection()">
+            Skip section
+          </button>
+        </div>
+        <button class="btn btn-primary" id="btn-next" onclick="nextSection()">
+          Next →
+        </button>
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════
+     THANKS SCREEN
+══════════════════════════════════════ -->
+    <div id="thanks" class="thanks">
+      <div class="thanks-check">✓</div>
+      <h2>Thank you! / Cảm ơn!</h2>
+      <p>Your response has been saved to CSV. You can close this window.</p>
+      <div class="thanks-file" id="thanks-file">Saved to: —</div>
+      <button
+        class="btn btn-outline"
+        style="margin-top: 24px"
+        onclick="newResponse()"
+      >
+        Submit another response
+      </button>
+    </div>
+
+    <div class="saved-pill" id="saved-pill">Saved ✓</div>
+    <script src="survey.js"></script>
+  </body>
+</html>
