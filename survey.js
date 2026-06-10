@@ -1467,17 +1467,17 @@ function nextSection() {
   // document.body.scrollTop = 0; // for Safari
   // console.log("Scroll attempt after, scrollY:", window.scrollY);
   const formBody = document.getElementById("form-body");
-  console.log("formBody found:", formBody);
-  console.log("formBody.scrollTop before:", formBody.scrollTop);
-  console.log("formBody.scrollHeight:", formBody.scrollHeight);
-  console.log("formBody.clientHeight:", formBody.clientHeight);
-  console.log(
-    "formBody overflow-y:",
-    window.getComputedStyle(formBody).overflowY,
-  );
+  // console.log("formBody found:", formBody);
+  // console.log("formBody.scrollTop before:", formBody.scrollTop);
+  // console.log("formBody.scrollHeight:", formBody.scrollHeight);
+  // console.log("formBody.clientHeight:", formBody.clientHeight);
+  // console.log(
+  //   "formBody overflow-y:",
+  //   window.getComputedStyle(formBody).overflowY,
+  // );
 
   formBody.scrollTop = 0;
-  console.log("formBody.scrollTop after:", formBody.scrollTop);
+  // console.log("formBody.scrollTop after:", formBody.scrollTop);
 }
 
 function prevSection() {
@@ -1486,9 +1486,11 @@ function prevSection() {
   renderSection(currentSection);
   updateNav();
   updateProgress();
-  window.scrollTo({ top: 0, behavior: "smooth" });
-  document.documentElement.scrollTop = 0; // for Safari
-  document.body.scrollTop = 0; // for Safari
+  // window.scrollTo({ top: 0, behavior: "smooth" });
+  // document.documentElement.scrollTop = 0; // for Safari
+  // document.body.scrollTop = 0; // for Safari
+  const formBody = document.getElementById("form-body");
+  formBody.scrollTop = 0;
 }
 
 function skipSection() {
@@ -1497,9 +1499,11 @@ function skipSection() {
   renderSection(currentSection);
   updateNav();
   updateProgress();
-  window.scrollTo({ top: 0, behavior: "smooth" });
-  document.documentElement.scrollTop = 0; // for Safari
-  document.body.scrollTop = 0; // for Safari
+  // window.scrollTo({ top: 0, behavior: "smooth" });
+  // document.documentElement.scrollTop = 0; // for Safari
+  // document.body.scrollTop = 0; // for Safari
+  const formBody = document.getElementById("form-body");
+  formBody.scrollTop = 0;
 }
 
 function updateNav() {
@@ -1583,9 +1587,11 @@ function newResponse() {
   renderSection(0);
   updateNav();
   updateProgress();
-  window.scrollTo({ top: 0 });
-  document.documentElement.scrollTop = 0; // for Safari
-  document.body.scrollTop = 0; // for Safari
+  // window.scrollTo({ top: 0 });
+  // document.documentElement.scrollTop = 0; // for Safari
+  // document.body.scrollTop = 0; // for Safari
+  const formBody = document.getElementById("form-body");
+  formBody.scrollTop = 0;
 }
 
 /* ── Saved indicator ── */
