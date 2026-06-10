@@ -1461,6 +1461,8 @@ function nextSection() {
   updateNav();
   updateProgress();
   window.scrollTo({ top: 0, behavior: "smooth" });
+  document.documentElement.scrollTop = 0; // for Safari
+  document.body.scrollTop = 0; // for Safari
 }
 
 function prevSection() {
@@ -1470,6 +1472,8 @@ function prevSection() {
   updateNav();
   updateProgress();
   window.scrollTo({ top: 0, behavior: "smooth" });
+  document.documentElement.scrollTop = 0; // for Safari
+  document.body.scrollTop = 0; // for Safari
 }
 
 function skipSection() {
@@ -1479,6 +1483,8 @@ function skipSection() {
   updateNav();
   updateProgress();
   window.scrollTo({ top: 0, behavior: "smooth" });
+  document.documentElement.scrollTop = 0; // for Safari
+  document.body.scrollTop = 0; // for Safari
 }
 
 function updateNav() {
@@ -1563,6 +1569,8 @@ function newResponse() {
   updateNav();
   updateProgress();
   window.scrollTo({ top: 0 });
+  document.documentElement.scrollTop = 0; // for Safari
+  document.body.scrollTop = 0; // for Safari
 }
 
 /* ── Saved indicator ── */
