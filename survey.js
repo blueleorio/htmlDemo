@@ -1451,6 +1451,7 @@ function startFresh() {
 }
 
 function nextSection() {
+  console.log("nextSection fired, currentSection:", currentSection);
   if (!validateSection()) return;
   if (currentSection >= CONFIG.sections.length - 1) {
     submitForm();
@@ -1460,9 +1461,23 @@ function nextSection() {
   renderSection(currentSection);
   updateNav();
   updateProgress();
-  window.scrollTo({ top: 0, behavior: "smooth" });
-  document.documentElement.scrollTop = 0; // for Safari
-  document.body.scrollTop = 0; // for Safari
+  // console.log("Scroll attempt, scrollY before:", window.scrollY);
+  // window.scrollTo({ top: 0, behavior: "smooth" });
+  // document.documentElement.scrollTop = 0; // for Safari
+  // document.body.scrollTop = 0; // for Safari
+  // console.log("Scroll attempt after, scrollY:", window.scrollY);
+  const formBody = document.getElementById("form-body");
+  console.log("formBody found:", formBody);
+  console.log("formBody.scrollTop before:", formBody.scrollTop);
+  console.log("formBody.scrollHeight:", formBody.scrollHeight);
+  console.log("formBody.clientHeight:", formBody.clientHeight);
+  console.log(
+    "formBody overflow-y:",
+    window.getComputedStyle(formBody).overflowY,
+  );
+
+  formBody.scrollTop = 0;
+  console.log("formBody.scrollTop after:", formBody.scrollTop);
 }
 
 function prevSection() {
@@ -1500,8 +1515,8 @@ function updateNav() {
 function updateProgress() {
   const pct = Math.round((currentSection / CONFIG.sections.length) * 100);
   document.getElementById("progress-fill").style.width = pct + "%";
-  document.getElementById("progress-pct").textContent =
-    `Section ${currentSection + 1} of ${CONFIG.sections.length} · ${pct}%`;
+  // document.getElementById("progress-pct").textContent =
+  //   `Section ${currentSection + 1} of ${CONFIG.sections.length} · ${pct}%`;
   document.getElementById("topbar-title").textContent = CONFIG.event.seriesName;
   document.getElementById("topbar-meta").textContent =
     `Section ${currentSection + 1}/${CONFIG.sections.length}`;

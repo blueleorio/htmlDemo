@@ -193,6 +193,9 @@ body {
   max-width: 720px;
   margin: 0 auto;
   padding: 48px 24px 100px;
+  height: calc(100vh - 60px);
+  overflow-y: auto;
+  scroll-behavior: smooth;
 }
 
 /* ── Section header ── */
